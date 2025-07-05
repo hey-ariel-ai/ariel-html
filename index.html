@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariel AI - Sua Revolução Pessoal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(3, 112, 202, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 176, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(69, 190, 151, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 
+                0 0 60px rgba(3, 112, 202, 0.3),
+                0 0 120px rgba(0, 176, 255, 0.2),
+                inset 0 0 60px rgba(69, 190, 151, 0.1);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(3, 112, 202, 0.3);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 80px rgba(3, 112, 202, 0.4),
+                0 0 160px rgba(0, 176, 255, 0.3),
+                inset 0 0 80px rgba(69, 190, 151, 0.2);
+        }
+
+        .glow-text {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0370ca 0%, #00b0ff 30%, #45be97 70%, #3d9c91 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            text-shadow: 0 0 30px rgba(3, 112, 202, 0.5);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            color: #94a3b8;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .description {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            margin-bottom: 4rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #0370ca, #00b0ff);
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(3, 112, 202, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 48px rgba(3, 112, 202, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(3, 112, 202, 0.15), rgba(0, 176, 255, 0.1));
+            animation: float 8s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(3, 112, 202, 0.3);
+        }
+
+        .shape:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 140px;
+            height: 140px;
+            top: 65%;
+            right: 8%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        .tech-shape {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(69, 190, 151, 0.2), rgba(61, 156, 145, 0.15));
+            animation: techFloat 10s ease-in-out infinite;
+            box-shadow: 0 0 25px rgba(69, 190, 151, 0.4);
+        }
+
+        .tech-shape:nth-child(4) {
+            width: 50px;
+            height: 50px;
+            top: 20%;
+            right: 20%;
+            border-radius: 50%;
+            animation-delay: 1s;
+        }
+
+        .tech-shape:nth-child(5) {
+            width: 70px;
+            height: 25px;
+            top: 80%;
+            left: 10%;
+            border-radius: 12px;
+            animation-delay: 3s;
+        }
+
+        .tech-shape:nth-child(6) {
+            width: 40px;
+            height: 40px;
+            top: 45%;
+            right: 12%;
+            border-radius: 50%;
+            animation-delay: 5s;
+        }
+
+        .tech-shape:nth-child(7) {
+            width: 60px;
+            height: 60px;
+            bottom: 25%;
+            right: 25%;
+            border-radius: 10px;
+            animation-delay: 2s;
+        }
+
+        .tech-shape:nth-child(8) {
+            width: 35px;
+            height: 35px;
+            top: 85%;
+            right: 8%;
+            border-radius: 50%;
+            animation-delay: 4s;
+        }
+
+        .hex-shape {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(0, 176, 255, 0.18), rgba(3, 112, 202, 0.12));
+            animation: hexFloat 12s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(0, 176, 255, 0.5);
+        }
+
+        .hex-shape:nth-child(9) {
+            width: 50px;
+            height: 50px;
+            top: 30%;
+            left: 3%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation-delay: 0s;
+        }
+
+        .hex-shape:nth-child(10) {
+            width: 40px;
+            height: 40px;
+            bottom: 10%;
+            right: 15%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation-delay: 3s;
+        }
+
+        .data-shape {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(69, 190, 151, 0.15), rgba(61, 156, 145, 0.1));
+            animation: dataFloat 14s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(69, 190, 151, 0.4);
+        }
+
+        .data-shape:nth-child(11) {
+            width: 45px;
+            height: 45px;
+            top: 75%;
+            left: 20%;
+            border-radius: 6px;
+            animation-delay: 1s;
+        }
+
+        .data-shape:nth-child(12) {
+            width: 55px;
+            height: 55px;
+            top: 8%;
+            left: 30%;
+            border-radius: 50%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+
+        @keyframes techFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateY(-20px) rotate(90deg) scale(1.15);
+            }
+            50% {
+                transform: translateY(-35px) rotate(180deg) scale(0.85);
+            }
+            75% {
+                transform: translateY(-15px) rotate(270deg) scale(1.1);
+            }
+        }
+
+        @keyframes hexFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-25px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(-15px) rotate(240deg);
+            }
+        }
+
+        @keyframes dataFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(-40px) rotate(180deg) scale(1.3);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .cta-button {
+                padding: 18px 32px;
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="tech-shape"></div>
+            <div class="tech-shape"></div>
+            <div class="tech-shape"></div>
+            <div class="tech-shape"></div>
+            <div class="tech-shape"></div>
+            <div class="hex-shape"></div>
+            <div class="hex-shape"></div>
+            <div class="data-shape"></div>
+            <div class="data-shape"></div>
+        </div>
+        
+        <div class="container">
+            <div class="content">
+                <div class="logo-container">
+                    <img src="ariel_ai.png" alt="Ariel AI" class="logo">
+                </div>
+                
+                <h1 class="glow-text">Ariel AI</h1>
+                <p class="subtitle">Sua Revolução Pessoal Chegará em Breve</p>
+                
+                <p class="description">
+                    Imagine ter alguém que cuida de todos os detalhes da sua vida enquanto você foca no que realmente importa. Ariel é sua futura assistente pessoal que vai transformar a forma como você organiza seu dia, desde compromissos até tarefas do cotidiano. Deixe seu WhatsApp e seja um dos primeiros a experimentar essa revolução!
+                </p>
+
+                <a href="https://forms.gle/2mTuL5pKj2vNuKcy9" target="_blank" class="cta-button">
+                    Quero ser um dos primeiros! 🚀
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
