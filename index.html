@@ -516,6 +516,103 @@
             position: relative;
             z-index: 2;
         }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #1a1d23 0%, #2a2e36 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 0 2rem 0;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00b0ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-subtitle {
+            font-size: 1rem;
+            color: #e5e7eb;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .footer-link:hover {
+            color: #00b0ff;
+            background: rgba(0, 176, 255, 0.1);
+            border-color: rgba(0, 176, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        .footer-bottom {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 0 1.5rem 0;
+            }
+            
+            .footer-content {
+                padding: 0 1rem;
+            }
+            
+            .footer-links {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-link {
+                width: 200px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -564,6 +661,29 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="imgs/logo.png" alt="Ariel AI" class="footer-logo">
+            <h3 class="footer-title">Ariel AI</h3>
+            <p class="footer-subtitle">Sua assistente pessoal inteligente</p>
+            
+            <nav class="footer-links">
+                <a href="/" class="footer-link">Início</a>
+                <a href="/terms-of-service/" class="footer-link">Termos de Uso</a>
+                <a href="/app-privacy-policy/" class="footer-link">Política de Privacidade</a>
+                <a href="/whatsapp/" class="footer-link">Contato WhatsApp</a>
+            </nav>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ariel AI. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
     // Carrossel de imagens no mockup do celular, com dots e autoplay
     (function() {
