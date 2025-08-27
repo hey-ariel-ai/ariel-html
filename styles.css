@@ -79,10 +79,8 @@ body {
 }
 
 .logo {
-    width: 25vw;
-    height: 25vw;
-    max-width: 350px;
-    max-height: 350px;
+    width: 350px;
+    height: 350px;
     border-radius: unset !important;
     background: none !important;
     box-shadow: none !important;
@@ -448,10 +446,8 @@ body {
     }
 
     .logo {
-        width: 35vw;
-        height: 35vw;
-        max-width: 250px;
-        max-height: 250px;
+        width: 250px;
+        height: 250px;
     }
 
     .cta-button {
@@ -485,10 +481,8 @@ body {
 
 @media (max-width: 480px) {
     .logo {
-        width: 40vw;
-        height: 40vw;
-        max-width: 200px;
-        max-height: 200px;
+        width: 200px;
+        height: 200px;
     }
 
     .right-col {
